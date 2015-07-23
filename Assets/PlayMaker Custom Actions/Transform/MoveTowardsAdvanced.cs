@@ -102,7 +102,7 @@ namespace HutongGames.PlayMaker.Actions
 			
 			if (_rb!=null)
 			{
-				go.rigidbody.position = Vector3.MoveTowards(go.rigidbody.position, targetPos, maxSpeed.Value * Time.deltaTime);
+				go.GetComponent<Rigidbody>().position = Vector3.MoveTowards(go.GetComponent<Rigidbody>().position, targetPos, maxSpeed.Value * Time.deltaTime);
 			}else{
 				go.transform.position = Vector3.MoveTowards(go.transform.position, targetPos, maxSpeed.Value * Time.deltaTime);
 			}
@@ -123,9 +123,9 @@ namespace HutongGames.PlayMaker.Actions
 				return false;
 			}
 			
-			if (go.rigidbody!=null)
+			if (go.GetComponent<Rigidbody>()!=null)
 			{
-				_rb = go.rigidbody;
+				_rb = go.GetComponent<Rigidbody>();
 			}
 			
 			goTarget = targetObject.Value;

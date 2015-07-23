@@ -36,13 +36,13 @@ namespace HutongGames.PlayMaker.Actions
 			if (go == null) return;
 			
 
-			if (go.audio == null)
+			if (go.GetComponent<AudioSource>() == null)
 			{
 				LogError("SwapSingleSprite: Missing AudioSource!");
 				return;
 			}
 
-			bool _isPlaying = go.audio.isPlaying;
+			bool _isPlaying = go.GetComponent<AudioSource>().isPlaying;
 			isPlaying.Value = _isPlaying;
 
 			Fsm.Event(_isPlaying ? isPlayingEvent : isNotPlayingEvent);
